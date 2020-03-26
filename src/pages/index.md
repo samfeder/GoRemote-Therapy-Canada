@@ -2,6 +2,7 @@
 templateKey: index-page
 title: Canada Online Therapy
 image: /img/cropworking.jpg
+bannerImage: /img/cropworking.jpg
 heading: The questions you didn't know you needed the answers to
 subheading: Bring your practice online
 mainpitch:

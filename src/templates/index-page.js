@@ -8,6 +8,7 @@ import BlogRoll from '../components/BlogRoll'
 
 export const IndexPageTemplate = ({
   image,
+  bannerImage,
   title,
   heading,
   subheading,
@@ -24,6 +25,8 @@ export const IndexPageTemplate = ({
         })`,
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
+        backgroundSize: 'auto 75%',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <div
@@ -49,6 +52,14 @@ export const IndexPageTemplate = ({
         >
           {title}
         </h1>
+        <div
+          className="full-width-image-container margin-top-0"
+          style={{
+            backgroundImage: `url(${
+              !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+            })`,
+          }}
+        ></div>
         <h3
           className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
           style={{
@@ -57,7 +68,7 @@ export const IndexPageTemplate = ({
             backgroundColor: '#FF0000',
             color: 'white',
             lineHeight: '1',
-            padding: '0.25em',
+            padding: '0.75em',
           }}
         >
           {subheading}
@@ -116,6 +127,7 @@ export const IndexPageTemplate = ({
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  bannerImage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
