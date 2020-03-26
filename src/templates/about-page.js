@@ -33,7 +33,9 @@ AboutPageTemplate.propTypes = {
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
-
+  fetch("/.netlify/functions/hello")
+    .then(response => response.json())
+    .then(console.log)
   return (
     <Layout>
       <AboutPageTemplate
