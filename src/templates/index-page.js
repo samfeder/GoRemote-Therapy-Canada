@@ -25,7 +25,7 @@ export const IndexPageTemplate = ({
         })`,
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
-        backgroundSize: 'auto 75%',
+        backgroundSize: 'auto',
         backgroundRepeat: 'no-repeat'
       }}
     >
@@ -52,14 +52,14 @@ export const IndexPageTemplate = ({
         >
           {title}
         </h1>
-        <div
-          className="full-width-image-container margin-top-0"
+        <img
+          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
           style={{
-            backgroundImage: `url(${
-              !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-            })`,
+            height: '1em',
+            width: '1em',
+            margin: '10px auto'
           }}
-        ></div>
+          src={!!bannerImage.childImageSharp ? bannerImage.childImageSharp.fluid.src : bannerImage}/>
         <h3
           className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
           style={{
@@ -69,6 +69,7 @@ export const IndexPageTemplate = ({
             color: 'white',
             lineHeight: '1',
             padding: '0.75em',
+            textAlign: 'center'
           }}
         >
           {subheading}
@@ -145,6 +146,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         image={frontmatter.image}
+        bannerImage={frontmatter.bannerImage}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -172,6 +174,13 @@ export const pageQuery = graphql`
       frontmatter {
         title
         image {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        bannerImage {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid
