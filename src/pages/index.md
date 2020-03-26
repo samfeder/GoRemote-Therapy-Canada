@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Canada Online Therapy
-image: /img/onlinetherapy.jpg
+image: /img/samiworking.jpg
 heading: The questions you didn't know you needed the answers to
 subheading: Bring your practice online
 mainpitch:
