@@ -33,7 +33,8 @@ AboutPageTemplate.propTypes = {
 
 const AboutPage = ({ data }) => {
   const { markdownRemark: post } = data
-  fetch("/.netlify/functions/hello")
+  const url = process.env.NODE_ENV === 'production' ? "/.netlify/functions/hello" : "http://localhost:9000/hello"
+  fetch(url)
     .then(response => response.json())
     .then(console.log)
   return (
