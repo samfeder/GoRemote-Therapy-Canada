@@ -109,12 +109,12 @@ export const IndexPageTemplate = ({
                 </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
+                    Featured Posts
                   </h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
+                    <Link className="btn" to="/outline">
+                      View All
                     </Link>
                   </div>
                 </div>
