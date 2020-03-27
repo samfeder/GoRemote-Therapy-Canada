@@ -127,3 +127,9 @@ please read the [code of conduct](CODE_OF_CONDUCT.md).
 
 
 This for gated content? [https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/](https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/)
+
+# Future features
+
+- Commenting 
+- Uploading forms
+- Submit your question

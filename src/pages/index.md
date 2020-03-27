@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Canada Online Therapy
+title: Online Therapy
 image: /img/cropworking.jpg
 bannerImage: /img/canadaleaf.png
 heading: The questions you didn't know you needed the answers to
