@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'RemoteTherapy.ca',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Finally, a site dedicated to Canadian Remote Therapists where they can keep up with the latest and greatest news and resources',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
