@@ -1,6 +1,10 @@
 backend:
   name: git-gateway
   branch: master
+  accept_roles:
+  - admin
+  - editor
+  - guest
   commit_messages:
     create: 'Create {{collection}} “{{slug}}”'
     update: 'Update {{collection}} “{{slug}}”'

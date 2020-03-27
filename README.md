@@ -124,3 +124,6 @@ This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gats
 
 Contributions are always welcome, no matter how large or small. Before contributing,
 please read the [code of conduct](CODE_OF_CONDUCT.md).
+
+
+This for gated content? [https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/](https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/)

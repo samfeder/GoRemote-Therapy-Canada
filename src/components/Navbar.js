@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import logo from '../img/logo.svg'
+const netlifyIdentity = require("netlify-identity-widget");
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -9,6 +10,9 @@ const Navbar = class extends React.Component {
       active: false,
       navBarActiveClass: '',
     }
+  }
+  componentDidMount(){    
+    netlifyIdentity.init();
   }
 
   toggleHamburger = () => {
@@ -39,6 +43,7 @@ const Navbar = class extends React.Component {
         aria-label="main-navigation"
       >
         <div className="container">
+          <div data-netlify-identity-menu></div>
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
               <img src={logo} alt="Remote Therapy" style={{ width: '200px' }} />
