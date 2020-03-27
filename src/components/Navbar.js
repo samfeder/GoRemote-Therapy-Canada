@@ -43,7 +43,6 @@ const Navbar = class extends React.Component {
         aria-label="main-navigation"
       >
         <div className="container">
-          <div data-netlify-identity-menu></div>
           <div className="navbar-brand">
             <Link to="/" className="navbar-item" title="Logo">
               <img src={logo} alt="Remote Therapy" style={{ width: '200px' }} />
@@ -80,6 +79,9 @@ const Navbar = class extends React.Component {
                 Form Examples
               </Link>
             </div>
+          </div>
+          <div className="navbar-end has-text-centered">
+            <div data-netlify-identity-menu/>
           </div>
         </div>
       </nav>
