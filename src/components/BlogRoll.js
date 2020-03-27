@@ -2,10 +2,31 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
+const netlifyIdentity = require("netlify-identity-widget");
 
 class BlogRoll extends React.Component {
+  constructor(data){
+    super(data);
+
+    this.state = {
+      loggedIn: false
+    }
+  }
+
+  updateProducts(){
+    this.setState({ loggedIn: netlifyIdentity.currentUser() != null });
+  }
+    
+  componentDidMount(){
+    netlifyIdentity.on("login", user => this.updateProducts());
+    netlifyIdentity.on("logout", () => this.updateProducts());
+    this.updateProducts();
+  }
+    
+
   render() {
     const { data } = this.props
+    const { loggedIn } = this.state
     const { edges: posts } = data.allMarkdownRemark
 
     return (
@@ -43,7 +64,7 @@ class BlogRoll extends React.Component {
                   </p>
                 </header>
                 <p>
-                  {post.excerpt}
+                  {!loggedIn ? 'You gotta log in' : post.excerpt}
                   <br />
                   <br />
                   <Link className="button" to={post.fields.slug}>
