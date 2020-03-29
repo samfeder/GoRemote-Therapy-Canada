@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PreviewCompatibleImage from '../components/PreviewCompatibleImage'
 
-const OutlineTable = ({ gridItems }) => (
+const FeatureGrid = ({ posts }) => (
   <div className="columns is-multiline">
-    {gridItems.map(item => (
-      <div key={item.text} className="column is-6">
+    {posts.map(item => 
+    {
+      const {node} = item
+      const {frontmatter} = node
+      return (
+      <div key={frontmatter.title} className="column is-6">
         <section className="section">
           <div className="has-text-centered">
             <div
@@ -14,18 +17,17 @@ const OutlineTable = ({ gridItems }) => (
                 display: 'inline-block',
               }}
             >
-              <PreviewCompatibleImage imageInfo={item} />
             </div>
           </div>
-          <p>{item.text}</p>
+          <p>{frontmatter.title}</p>
         </section>
       </div>
-    ))}
+    )})}
   </div>
 )
 
-OutlineTable.propTypes = {
-  gridItems: PropTypes.arrayOf(
+FeatureGrid.propTypes = {
+  posts: PropTypes.arrayOf(
     PropTypes.shape({
       image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
       text: PropTypes.string,
@@ -33,4 +35,4 @@ OutlineTable.propTypes = {
   ),
 }
 
-export default OutlineTable
+export default FeatureGrid

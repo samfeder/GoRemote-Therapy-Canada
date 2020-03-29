@@ -2,47 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import OutlineTable from '../components/Features'
+import OutlineTable from '../components/Outline'
 
-export const OutlinePageTemplate = ({
-  image,
-  title,
-  heading,
-  description
-}) => (
+export const OutlinePageTemplate = ({posts}) => (
   <div className="content">
-    <div
-      className="full-width-image-container margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-      }}
-    >
-      <h2
-        className="has-text-weight-bold is-size-1"
-        style={{
-          boxShadow: '0.5rem 0 0 #f40, -0.5rem 0 0 #f40',
-          backgroundColor: '#f40',
-          color: 'white',
-          padding: '1rem',
-        }}
-      >
-        {title}
-      </h2>
-    </div>
     <section className="section section--gradient">
       <div className="container">
         <div className="section">
           <div className="columns">
-            <div className="column is-7 is-offset-1">
-              <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-              <p>{description}</p>
-            </div>
-          </div>
-          <div className="columns">
             <div className="column is-10 is-offset-1">
-              <OutlineTable/>
+              <OutlineTable posts={posts}/>
             </div>
           </div>
         </div>
@@ -52,22 +21,17 @@ export const OutlinePageTemplate = ({
 )
 
 OutlinePageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  description: PropTypes.string
+  posts: PropTypes.array
 }
 
 const OutlinePage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+  const { edges: posts } = data.allMarkdownRemark
+
 
   return (
     <Layout>
       <OutlinePageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        description={frontmatter.description}
+        posts={posts}
       />
     </Layout>
   )
@@ -75,8 +39,8 @@ const OutlinePage = ({ data }) => {
 
 OutlinePage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
+    allMarkdownRemark: PropTypes.shape({
+      edges: PropTypes.array,
     }),
   }),
 }
@@ -84,20 +48,22 @@ OutlinePage.propTypes = {
 export default OutlinePage
 
 export const OutlinePageQuery = graphql`
-  query OutlinePage($id: String!) {
-    markdownRemark(id: { eq: $id }) {
-      frontmatter {
-        title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
+query OutlineQuery {
+  allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}, filter: {frontmatter: {templateKey: {eq: "guide-post"}}, fields: {slug: {}}}) {
+    edges {
+      node {
+        id
+        fields {
+          slug
         }
-        heading
-        description
+        frontmatter {
+          title
+          templateKey
+          date(formatString: "MMMM DD, YYYY")
+        }
       }
     }
   }
+}
+
 `

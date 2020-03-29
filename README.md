@@ -35,5 +35,7 @@ $ netlify dev # or ntl dev
 - Uploading forms
 - Submit your question
 - About Me section
+- Voting (which platform is the best?)
+- People can add their own resources categorized (addiction, anxiety)
 
 - Adding SPA  gated content? [https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/](https://www.gatsbyjs.org/blog/2018-12-17-turning-the-static-dynamic/) --- Probably not necesasary with Indentity Management
