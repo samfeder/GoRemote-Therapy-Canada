@@ -11,7 +11,7 @@ export const OutlinePageTemplate = ({posts}) => (
         <div className="section">
           <div className="columns">
             <div className="column is-10 is-offset-1">
-              <OutlineTable posts={posts}/>
+              <OutlineTable posts={posts.map(post => post.node)}/>
             </div>
           </div>
         </div>
