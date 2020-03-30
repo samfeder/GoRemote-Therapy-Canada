@@ -1,6 +1,6 @@
 ---
 templateKey: guide-post
-title: Compliance
+title: Getting Started with compliance
 date: 2016-12-17T15:04:10.000Z
 description: 'Lets get started talking about compliance'
 featuredpost: false

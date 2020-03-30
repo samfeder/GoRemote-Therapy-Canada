@@ -5,20 +5,25 @@ class OutlineTable extends React.Component {
   render() {
     const tableOfContents = this.buildHierarchy(this.props.posts)
     return (
-      <div className="columns is-multiline">
+      <div className="table-of-contents is-multiline">
         {Object
           .keys(tableOfContents)
           .map(key => {
             const items = tableOfContents[key]
             return (
-              <div>{items.headerPost.frontmatter.title} {items
-                  .posts
-                  .map(item => {
-                    const {frontmatter} = item
-                    return (
-                      <div key={item.id}>{frontmatter.title}</div>
-                    )
-                  })}
+              <div>
+                <a class="header-category" href={items.headerPost.fields.slug}>{items.headerPost.frontmatter.title}</a>
+                <ul>{items
+                    .posts
+                    .map(item => {
+                      const {frontmatter} = item
+                      return (
+                        <li>
+                          <a key={item.id} class="subject-item" href={item.fields.slug}>{frontmatter.title}</a>
+                        </li>
+                      )
+                    })}
+                </ul>
               </div>
             )
           })}
