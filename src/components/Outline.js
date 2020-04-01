@@ -34,26 +34,20 @@ class OutlineTable extends React.Component {
   buildHierarchy(posts) {
     const hierarchy = {}
     posts.forEach(post => {
-      const levels = post
-        .fields
-        .slug
-        .split('/')
-        .filter(Boolean)
-
-      if (levels.length === 2) {
-        hierarchy[levels[1]]
-          ? hierarchy[levels[1]].headerPost = post
-          : hierarchy[levels[1]] = {
-            headerPost: post
+      const { section, order } = post.frontmatter
+      if (order === 0) {
+        hierarchy[section]
+          ? hierarchy[section].headerPost = hierarchy[section].headerPost || post
+          : hierarchy[section] = {
+            headerPost: post,
+            posts: []
           }
-      }
-
-      if (levels.length > 2) {
-        hierarchy[levels[1]]
-          ? hierarchy[levels[1]]
+      } else {
+        hierarchy[section]
+          ? hierarchy[section]
             .posts
             .push(post)
-          : hierarchy[levels[1]] = {
+          : hierarchy[section] = {
             posts: [post]
           }
       }

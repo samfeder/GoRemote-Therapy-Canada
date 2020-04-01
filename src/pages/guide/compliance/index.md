@@ -1,5 +1,6 @@
 ---
-Order: 2
+order: 0
+section: compliance
 templateKey: guide-post
 title: Getting Started with compliance
 date: 2016-12-17T15:04:10.000Z

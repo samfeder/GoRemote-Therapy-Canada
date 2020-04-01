@@ -59,6 +59,8 @@ query OutlineQuery {
         frontmatter {
           title
           templateKey
+          section
+          order
           date(formatString: "MMMM DD, YYYY")
         }
       }

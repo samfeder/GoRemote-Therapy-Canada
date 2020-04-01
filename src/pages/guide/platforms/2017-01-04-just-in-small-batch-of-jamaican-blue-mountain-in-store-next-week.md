@@ -1,5 +1,6 @@
 ---
-Order: 4
+order: 4
+section: platforms
 templateKey: guide-post
 title: PHIPA / PIPEDA And You
 date: 2017-01-04T15:04:10.000Z

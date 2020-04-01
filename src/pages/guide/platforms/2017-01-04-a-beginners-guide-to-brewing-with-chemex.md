@@ -1,5 +1,6 @@
 ---
-Order: 3
+order: 3
+section: platforms
 templateKey: guide-post
 title: Choosing the right video platform
 date: 2017-01-04T15:04:10.000Z
