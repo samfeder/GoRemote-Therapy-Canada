@@ -8,18 +8,18 @@ class OutlineTable extends React.Component {
       <div className="table-of-contents is-multiline">
         {Object
           .keys(tableOfContents)
-          .map(key => {
+          .map((key, i) => {
             const items = tableOfContents[key]
             return (
-              <div>
-                <a class="header-category" href={items.headerPost.fields.slug}>{items.headerPost.frontmatter.title}</a>
+              <div key={`${key}-${i}`}>
+                <a className="header-category" href={items.headerPost.fields.slug}>{items.headerPost.frontmatter.title}</a>
                 <ul>{items
                     .posts
                     .map(item => {
                       const {frontmatter} = item
                       return (
-                        <li>
-                          <a key={item.id} class="subject-item" href={item.fields.slug}>{frontmatter.title}</a>
+                        <li key={item.id}>
+                          <a className="subject-item" href={item.fields.slug}>{frontmatter.title}</a>
                         </li>
                       )
                     })}
@@ -34,7 +34,7 @@ class OutlineTable extends React.Component {
   buildHierarchy(posts) {
     const hierarchy = {}
     posts.forEach(post => {
-      const { section, order } = post.frontmatter
+      const {section, order} = post.frontmatter
       if (order === 0) {
         hierarchy[section]
           ? hierarchy[section].headerPost = hierarchy[section].headerPost || post
