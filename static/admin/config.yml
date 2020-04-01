@@ -33,11 +33,13 @@ collections:
  
   - name: "guide"
     label: "Guide"
-    folder: "src/pages/guide/{{category}}/{{slug}}"
+    folder: "src/pages/guide"
+    path: "{{section}}/{{slug}}"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{order}}-{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Order", name: "Order", widget: "number"}
+      - {label: "Section", name: "section", widget: "string"}
+      - {label: "Order", name: "order", widget: "number"}
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "guide-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
