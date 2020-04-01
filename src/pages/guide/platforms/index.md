@@ -1,6 +1,6 @@
 ---
-order: 0
 section: platforms
+order: 0
 templateKey: guide-post
 title: Platforms
 date: 2016-12-17T15:04:10.000Z
