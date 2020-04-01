@@ -13,14 +13,14 @@ class BlogRoll extends React.Component {
     }
   }
 
-  updateProducts(){
+  updateLoginState(){
     this.setState({ loggedIn: netlifyIdentity.currentUser() != null });
   }
     
   componentDidMount(){
-    netlifyIdentity.on("login", user => this.updateProducts());
-    netlifyIdentity.on("logout", () => this.updateProducts());
-    this.updateProducts();
+    netlifyIdentity.on("login", user => this.updateLoginState());
+    netlifyIdentity.on("logout", () => this.updateLoginState());
+    this.updateLoginState();
   }
     
 
@@ -77,6 +77,7 @@ BlogRoll.propTypes = {
   }),
 }
 
+// TODO - only pull in relevent guides
 export default () => (
   <StaticQuery
     query={graphql`
