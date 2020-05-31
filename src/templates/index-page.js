@@ -46,6 +46,7 @@ export const IndexPageTemplate = ({
 						color: 'white',
 						lineHeight: '1',
 						padding: '0.25em',
+						fontFamily: 'monospace'
 					}}
 				>
 					{title}
@@ -69,7 +70,8 @@ export const IndexPageTemplate = ({
 						color: 'white',
 						lineHeight: '1',
 						padding: '0.75em',
-						textAlign: 'center'
+						textAlign: 'center',
+						fontFamily: 'monospace'
 					}}
 				>
 					{subheading}
