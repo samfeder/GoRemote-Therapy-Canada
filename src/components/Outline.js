@@ -12,7 +12,7 @@ class OutlineTable extends React.Component {
             const items = tableOfContents[key]
             return (
               <div key={`${key}-${i}`}>
-                <a className="header-category" href={items.headerPost.fields.slug}>{items.headerPost.frontmatter.title}</a>
+                <a className="header-category" href={items.headerPost?.fields?.slug}>{items.headerPost?.frontmatter?.title}</a>
                 <ul>{items
                     .posts
                     .map(item => {

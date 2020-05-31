@@ -31,7 +31,7 @@ $ netlify dev # or ntl dev
 
 # Future features
 
-- Commenting 
+- Commenting
 - Uploading forms
 - Submit your question
 - About Me section
